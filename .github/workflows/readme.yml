@@ -19,6 +19,8 @@ jobs:
         run: |
           pip install requests
           python3 摸鱼.py
+          git config --global user.email "fangweilong@outlook.com"
+          git config --global user.name "Teler"
           git commit -m "提交摸鱼语录更新" -a
       - name: push-action
         uses: ad-m/github-push-action@master
