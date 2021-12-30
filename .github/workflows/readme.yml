@@ -19,7 +19,7 @@ jobs:
         run: |
           pip install requests
           python3 摸鱼.py
-          git commit -m -a "提交摸鱼语录更新"
+          git commit -m "提交摸鱼语录更新" -a
       - name: push-action
         uses: ad-m/github-push-action@master
         with:
