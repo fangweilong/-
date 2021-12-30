@@ -19,7 +19,8 @@ jobs:
         run: |
           pip install requests
           python3 摸鱼.py
-      - uses: actions-go/push@master
+      - name: push-action
+        uses: ad-m/github-push-action@master
         with:
-          commit-message: '自动提交'
-          remote: origin
+          github_token: ${{ secrets.API_TOKEN_GITHUB }}
+          branch: master
