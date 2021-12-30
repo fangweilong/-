@@ -19,8 +19,9 @@ jobs:
         run: |
           pip install requests
           python3 摸鱼.py
+          git commit -m -a "提交摸鱼语录更新"
       - name: push-action
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.API_TOKEN_GITHUB }}
-          branch: master
+          branch: main
