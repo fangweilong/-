@@ -2,7 +2,7 @@ name: moyu
 
 # 定时触发触发
 on:
-  push
+  push:
     schedule:
       - cron: 8 * * * *
 
