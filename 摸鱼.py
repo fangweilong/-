@@ -2,6 +2,7 @@
 
 import requests
 import datetime
+import os
 
 # 今天的日期
 today = datetime.datetime.today()
@@ -18,13 +19,13 @@ nextHolidayUrl = "https://timor.tech/api/holiday/next/{}?type=Y&week=Y".format(t
 # 假期的数组，不包含周末
 holidaysAllJson = {}
 
-printStr = "[高级摸鱼办提醒您]:今天是{}周{}.\n" \
-           "工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的。\n".format(
-    datetime.datetime.strftime(today, '%Y年%m月%d日'), today.weekday())
+printStr = "## [高级摸鱼办提醒您]:今天是{}周{}.\n" \
+           "### 工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的。\n".format(
+    datetime.datetime.strftime(today, '%Y年%m月%d日'), today.weekday() + 1)
 
-printEndStr = "工作996，生病ICU。\n" \
+printEndStr = "\n工作996，生病ICU。\n" \
               "工作955，work–life balance。\n" \
-              "工作 944，生活为先."
+              "工作 944，生活为先。"
 
 
 # 计算今天以后的节假日
@@ -70,8 +71,20 @@ def getHolidays():
                     holidaysAllJson[holidayName] = holiday
 
 
+def writeFile(allStr, f=None):
+    f
+    try:
+        f = open('./readme.md', 'w')
+        f.write(allStr)
+    finally:
+        if f:
+            f.close()
+
+
 if __name__ == '__main__':
     getHolidays()
     todayAfterHolidays()
 
-    print(printStr + printEndStr)
+    allStr = printStr + printEndStr
+
+    writeFile(allStr)
