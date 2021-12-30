@@ -19,12 +19,12 @@ nextHolidayUrl = "https://timor.tech/api/holiday/next/{}?type=Y&week=Y".format(t
 # 假期的数组，不包含周末
 holidaysAllJson = {}
 
-printStr = "## [高级摸鱼办提醒您]:今天是{}周{}.\n" \
-           "### 工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的。\n".format(
+printStr = "## [高级摸鱼办提醒您]:今天是{}周{}。<br/>" \
+           "### 工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的。<br/>".format(
     datetime.datetime.strftime(today, '%Y年%m月%d日'), today.weekday() + 1)
 
-printEndStr = "\n工作996，生病ICU。\n" \
-              "工作955，work–life balance。\n" \
+printEndStr = "<br/>工作996，生病ICU。<br/>" \
+              "工作955，work–life balance。<br/>" \
               "工作 944，生活为先。"
 
 
@@ -35,7 +35,7 @@ def todayAfterHolidays():
         holidayDate = datetime.datetime.strptime(holidaysAllJson[key].get("time")[0], '%Y-%m-%d')
         if today < holidayDate:
             distanceDays = (holidayDate - today).days
-            printStr += "距离{}年{}还有{}天\n".format(holidayDate.year, key, distanceDays)
+            printStr += "距离{}年{}还有{}天<br/>".format(holidayDate.year, key, distanceDays)
 
 
 # 获取今年的假期，包含周日和调休
