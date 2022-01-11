@@ -3,7 +3,7 @@ name: moyu
 # 定时触发触发
 on:
   schedule:
-    - cron: "25 18 * * *"
+    - cron: "00 01 * * *"
 
 jobs:
   pages:
