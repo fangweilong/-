@@ -10,6 +10,8 @@ today = datetime.datetime.today()
 thisYear = today.year
 nextYear = today.year + 1
 
+weekJson = ["一", "二", "三", "四", "五", "六", "日"]
+
 # 接口地址
 holidayUrl = "https://timor.tech/api/holiday/year/{}?type=Y&week=N"
 
@@ -19,11 +21,11 @@ nextHolidayUrl = "https://timor.tech/api/holiday/next/{}?type=Y&week=Y".format(t
 # 假期的数组，不包含周末
 holidaysAllJson = {}
 
-printStr = "## [高级摸鱼办提醒您]:今天是{}周{}。\n"\
+printStr = "## [高级摸鱼办提醒您]:今天是{}周{}。\n" \
            "---\n" \
-           "### 工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的。\n"\
+           "### 工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的。\n" \
            "---\n".format(
-    datetime.datetime.strftime(today, '%Y年%m月%d日'), today.weekday() + 1)
+    datetime.datetime.strftime(today, '%Y年%m月%d日'), weekJson[today.weekday()])
 
 printEndStr = "---\n工作996，生病ICU.  \n" \
               "工作955，work–life balance。  \n" \
